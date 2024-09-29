@@ -1,8 +1,19 @@
 import express from "express";
 
+const app = express();
+//import the JSON parser middleware
+
+app.use(express.json());
+
+app.post("/user", (req, res) => {
+  //access the request body using req.body
+  const name = req.body.name;
+  const email = req.body.email;
+
+  res.send(`User created: ${name}, email: ${email}`);
+});
 //express function call used to initialize an express backend application
 //we are creating an express application instance and assigning it to the app constant
-const app = express();
 
 //add a route for homepage
 //browsers can only send get requests by default when sending them via url tab
@@ -15,14 +26,6 @@ app.get("/", (req, res) => {
   //send methods is accessible from the response object
   //this allows us to send data in the route
   res.send("Hello World!");
-});
-
-app.get("/contact", (req, res) => {
-  res.send("<h1> Contacts Home Page </h1>");
-});
-
-app.get("/contacts/:contactID", (req, res) => {
-  res.send("<h1> Individual Contact Page </h1>");
 });
 
 //takes 2 parameters
