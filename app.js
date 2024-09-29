@@ -18,12 +18,13 @@ app.get("/", (req, res) => {
 });
 
 app.get("/contact", (req, res) => {
-  res.send("<h1>Welcome to the Contacts Page</h1>");
+  res.send("<h1> Contacts Home Page </h1>");
 });
 
-app.get("/log?in", (req, res) => {
-  res.send("<h1>Welcome to the Login Page</h1>");
+app.get("/contacts/:contactID", (req, res) => {
+  res.send("<h1> Individual Contact Page </h1>");
 });
+
 //takes 2 parameters
 //first parameter is the port number
 //second parameter is the callback function
