@@ -1,17 +1,14 @@
 import express from "express";
+import router from "./userRouter.js";
 
 const app = express();
 //import the JSON parser middleware
 
-app.use(express.json());
+//app.use(express.json());
 
-app.post("/user", (req, res) => {
-  //access the request body using req.body
-  const name = req.body.name;
-  const email = req.body.email;
+//set userRouter as a default route for the application
+app.use("/", router);
 
-  res.send(`User created: ${name}, email: ${email}`);
-});
 //express function call used to initialize an express backend application
 //we are creating an express application instance and assigning it to the app constant
 
